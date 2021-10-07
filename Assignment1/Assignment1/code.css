@@ -1,0 +1,128 @@
+
+    /* .container{
+        transform-origin: left top;
+        transform: scale(1.502513, 1.502513);
+        left: 0px;
+        top: 230.104px;
+        cursor: default;
+    } */
+
+
+
+
+
+    .titleClass {
+        font-size: 30px;
+
+    }
+    .subTitleClass{
+        font-size: 20px;
+        box-sizing: border-box;
+        /* margin-left: 10px; */
+        border-bottom: 1px solid;
+        
+    }
+    .pageTitleClass{
+        margin-top: 10px;
+        font-family: Trebuchet MS;
+        font-weight: bold;
+        font-size :18px;
+    }
+    .instructionClass{
+        margin-left: 20px;
+        margin-top: 10px;
+        font-size: 10px;
+    }
+    .instruction1Class{
+        margin-left: 20px;
+        margin-top: 5px;
+        font-size: 10px;
+        color: blue;
+    }
+    
+    
+    
+       
+    
+
+
+    
+  
+
+    
+    .contentClass {
+        display: grid;
+        grid-template-columns: 800px 200px 300px !important;
+        /* grid-template-columns: repeat(3, 1fr);
+        
+        grid-auto-rows: 100px; */
+        gap: 10px;
+        padding: 10px; 
+   }
+    
+
+        .questionsClass{
+            margin-right: 25%;
+            margin-top: 20px;
+            width: 100%
+    
+        }
+        .queDivClass{
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            /* margin-right: 50px; */
+            border: 1px solid;
+            /* padding:20px; */
+            padding-left:5px ;
+            padding-bottom: 5px;
+            
+            
+            background-color: lightgray;
+        }
+        .answersClass{
+            /* display: inline-block; */
+            margin-right: 35%;
+            margin-left: 30%;
+            margin-top: 20px;
+            float: right;
+            }
+            .ansDivClass {
+                box-sizing: border-box;
+                border: 1px solid;
+                margin-bottom: 10px;
+                /* margin-top: 12px; */
+                text-align: center;
+                padding-bottom: 5px;
+                background-color: lightgray;
+                width: 200%;
+            }
+            .blankDivClass {
+                /* margin-right: 50%; */
+                /* margin-left: 5%; */
+                margin-top: 8px;
+                /* padding: 5px; */
+            }
+          
+                
+        .bdiv{
+        box-sizing: border-box;
+        border-style: dotted;
+        margin-bottom: 5px;
+        margin-top: 12px;
+        padding: 30px;
+        
+        padding-bottom: 5px;
+        background-color: lightgray;
+    }
+  
+    
+
+
+
+
+     /* border: 1px solid;
+                margin-bottom: 10px;
+                padding: 5px;
+                text-align: center;
+                box-sizing: border-box; */
+        /* border-style: dotted; */
