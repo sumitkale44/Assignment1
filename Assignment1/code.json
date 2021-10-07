@@ -29,13 +29,13 @@
         {
             "question":"Means that the probability that a relationship between two variables may be a coincidence.",
             "answer":"P=0.13"
-        }   
-      
-      
-      
-        ]
-
-
-      
-
+        }         
+        ],
+        "resetButton":{
+            "image":"/resetBtn_en.png",
+            "id":"01"
+        }
+    
+        
  }
+ 
