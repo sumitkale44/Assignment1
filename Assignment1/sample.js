@@ -13,7 +13,7 @@ function onMouseMove(e){
 function onMouseUp(e){
 	var bool = false;
 	for(var i=0; i<obj.options.length; i++){
-		if(){
+		if(bool){
 			bool = true;
 			pointer.left = this["rect_"+i].left;
 			pointer.top = this["rect_"+i].right;

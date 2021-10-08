@@ -29,7 +29,11 @@
         {
             "question":"Means that the probability that a relationship between two variables may be a coincidence.",
             "answer":"P=0.13"
-        }         
+        }   , 
+        {
+            "question":"xyZ",
+            "answer":"xx"
+        }        
         ],
         "resetButton":{
             "image":"/resetBtn_en.png",

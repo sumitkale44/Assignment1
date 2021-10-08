@@ -51,8 +51,6 @@ const initactivity = function () {
   // reset = responseData.resetButton.image;
   // reset.innerHTML=responseData.resetButton.image;
 
-  
-  console.log(reset);
 
   container.append(title);
   container.append(subTitle);
@@ -67,8 +65,106 @@ const initactivity = function () {
   container.append(showMe);
   container.append(submit);
   
-  
+
  
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }
+
+  const numbersCopy = [...responseData.options];
+  const shuffledOptions = shuffle(numbersCopy);
+
+ 
+
+  for(let j=0; j<shuffledOptions.length; j++){
+    const answerText = shuffledOptions[j]["answer"];
+    const ansDiv = document.createElement("div");
+    const line_Break = document.createElement("br");
+    ansDiv.className = "ansDivClass";
+    ansDiv.append(line_Break);
+    ansDiv.append(answerText);
+    answers.append(ansDiv);
+   
+    
+    let pointer;
+    // ansDiv.addEventListener("mousedown", onMouseDown);
+    // function onMouseDown(e){
+    //   pointer = e.target;
+    //   console.log("pointer",pointer)
+
+    //   document.addEventListener("mousemove", onMouseMove);
+    //    document.addEventListener("mouseup", onMouseUp);
+    // }
+    // function onMouseMove(e){
+    //   console.log("onMouseMove", onMouseMove)
+    //   pointer.left = e.pageX;
+    //   pointer.top = e.pageY;
+    // }
+    // function onMouseUp(e){
+    //   var bool = false;
+    //   for(var i=0; i<shuffledOptions.length; i++){
+    //     if(bool){
+    //       bool = true;
+    //       pointer.left = this["rect_"+i].left;
+    //       pointer.top = this["rect_"+i].right;
+    //       break;
+    //     }
+    //   }
+    //   // if(!bool){
+    //   //   pointer.left = org.x;
+    //   //   pointer.top = org.y;
+    //   // }
+    //   document.removeEventListener("mousemove", onMouseMove);
+    //   document.removeEventListener("mouseup", onMouseUp);
+    // }
+
+    ansDiv.onmousedown = function(event) {
+      // (1) prepare to moving: make absolute and on top by z-index
+      ansDiv.style.position = 'absolute';
+      ansDiv.style.zIndex = 1000;
+    
+      // move it out of any current parents directly into body
+      // to make it positioned relative to the body
+      document.body.append(ansDiv);
+    
+      // centers the ansDiv at (pageX, pageY) coordinates
+      function moveAt(pageX, pageY) {
+        ansDiv.style.left = pageX - ansDiv.offsetWidth / 2 + 'px';
+        ansDiv.style.top = pageY - ansDiv.offsetHeight / 2 + 'px';
+      }
+    
+      // move our absolutely positioned ansDiv under the pointer
+      moveAt(event.pageX, event.pageY);
+    
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      }
+    
+      // (2) move the ansDiv on mousemove
+      document.addEventListener('mousemove', onMouseMove);
+    
+      // (3) drop the ansDiv, remove unneeded handlers
+      ansDiv.onmouseup = function() {
+        document.removeEventListener('mousemove', onMouseMove);
+        ansDiv.onmouseup = null;
+      };
+    
+    };
+  }
 
   for (let i = 0; i < responseData.options.length; i++) {
     // console.log("responseData.options[i]", responseData.options[i]['question']);
@@ -81,58 +177,47 @@ const initactivity = function () {
     queDiv.append(`${[i]}:${text}`);
     questions.append(queDiv);
 
-    const bDiv=document.createElement('div');
-    bDiv.className="bdiv";
-    blankDiv.append(bDiv);
+    
+
+   
+    
+    // const ansDiv = document.createElement("div");
+    // const line_Break = document.createElement("br");
+    // ansDiv.className = "ansDivClass";
+    // ansDiv.append(line_Break);
+    // ansDiv.append(answerText);
+    
+    // answers.append(ansDiv);
+    // console.log(answerText);
+  
 
     const answerText = responseData.options[i]["answer"];
-    const line_Break = document.createElement("br");
-    const ansDiv = document.createElement("div");
-    ansDiv.className = "ansDivClass";
-    ansDiv.append(line_Break);
-    ansDiv.append(answerText);
-    answers.append(ansDiv);
-    
+   const bDiv=document.createElement('div');
+   const inDiv=document.createElement('div');
+   const lineBreak1 = document.createElement("br");
+    bDiv.className="bdiv    bDivAnswersClass";
+    inDiv.className='inDivClass';
+    inDiv.append(answerText)
+    bDiv.append(inDiv);
+    blankDiv.append(bDiv);
+     
 
+  
 
-    
-  }
-  // ansDiv.addEventListener("mouseDown",onMouseDown);
-  // function onMouseDown(e){
-  //   pointer = e.target;
-  //   ansDiv.addEventListener("mousemove", onMouseMove);
-  //   bDiv.addEventListener("mouseup", onMouseUp);
-  // }
-  // function onMouseMove(e){
-  //   pointer.left = e.pageX;
-  //   pointer.top = e.pageY;
-  // }
-  // function onMouseUp(e){
-  //   var bool = false;
-  //   for(var i=0; i<obj.options.length; i++){
-  //     if( bool = true){
-       
-  //       pointer.left = this["rect_"+i].left;
-  //       pointer.top = this["rect_"+i].right;
-  //       break;
-  //     }
-  //   }
-  //   if(!bool){
-  //     pointer.left = org.x;
-  //     pointer.top = org.y;
-  //   }
-  //   document.removeEventListener("mousemove", onMouseMove);
-  //   document.removeEventListener("mouseup", onMouseUp);
-  // }
-  // function onMouseMove(e){
-  //   pointer.left = e.pageX;
-  //   pointer.top = e.pageY;
-  // }
+  showMe.addEventListener('click',function(){
+    inDiv.style.opacity=100;
+  })
 
-  // reset.addEventListener('click',function(){
-  //   reset.classList.add('resetDisableClass');
-  // })
    
-};
+
+  
+
+  
+  }
+
+
+
+
+} 
 
 

@@ -53,11 +53,13 @@
     .contentClass {
         display: grid;
         grid-template-columns: 800px 200px 300px !important;
-        /* grid-template-columns: repeat(3, 1fr);
+      
         
-        grid-auto-rows: 100px; */
+       
+       
         gap: 10px;
         padding: 10px; 
+         
    }
     
 
@@ -79,10 +81,14 @@
         }
         .answersClass{
             /* display: inline-block; */
-            margin-right: 35%;
+            margin-right: 25%;
             margin-left: 30%;
-            margin-top: 20px;
+            margin-top: 28px; 
             float: right;
+            /* position: absolute; */
+            right: 5px;
+            
+            /* left: 5px; */
             }
             .ansDivClass {
                 box-sizing: border-box;
@@ -91,12 +97,17 @@
                 /* margin-top: 12px; */
                 text-align: center;
                 padding-bottom: 5px;
+                /* position: absolute; */
+
+               
             
                 width: 200%;
             }
              .blankDivClass {
               
                 margin-top: 8px;
+                /* position: absolute; */
+                float: left;
                
             }
           
@@ -106,11 +117,20 @@
         border-style: dotted;
         margin-bottom: 5px;
         margin-top: 12px;
-        padding: 30px;
+        padding: 12px;
+        text-align: center;
         
-        padding-bottom: 5px;
+        
+        padding-bottom: 5px; 
+        
         
     }
+    .inDivClass {
+        box-sizing: border-box;
+        opacity: 0;
+        
+    }
+        
     .resetClass{
         background-image:  url(resetDisableBtn_en.png);
         background-repeat: no-repeat;
@@ -123,6 +143,7 @@
         border-radius: 5px;
         margin-left: 10px;
         margin-top: 30px;
+        bottom: 10%;
         
     }
     .resetDisableClass{
